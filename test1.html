@@ -2,21 +2,27 @@
 <html>
 
         <head>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js" integrity="sha384-CchuzHs077vGtfhGYl9Qtc7Vx64rXBXdIAZIPbItbNyWIRTdG0oYAqki3Ry13Yzu" crossorigin="anonymous"></script>
-
+               
                 <script>
                         
-                        var doc = new jsPDF();
-                        doc.text(20, 20, 'Hello world!');
-                        doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
-                        doc.addPage('a6','l');
-                        doc.text(20, 20, 'Do you like that?');
-                        
-                       $('#cmd').click(function () {
-    
-                                doc.save('sample-file.pdf');
-                        });
+                       
+var doc = new jsPDF();
+var specialElementHandlers = {
+    '#editor': function (element, renderer) {
+        return true;
+    }
+};
+
+$('#cmd').click(function () {   
+    doc.fromHTML($('#content').html(), 15, 15, {
+        'width': 170,
+            'elementHandlers': specialElementHandlers
+    });
+    doc.save('sample-file.pdf');
+});
+
+// This code is collected but useful, click below to jsfiddle link.
+
                         
                         
                         
@@ -25,17 +31,17 @@
                 </script>
                 </head>
 <body>
-
-        <div id="content">
-                <h3>Generate PDF files in client-side JavaScript</h3>
-           
-           <p>href="https://parall.ax/products/jspdf#"</p>
-           <p>Or refer to the YouTube video: https://www.youtube.com/watch?v=CnprxD_sJFE<p>
-           </div>
-           
-           <div id="editor"></div>
-           
-           <button id="cmd">Generate PDF</button>
+<div id="content">
+    <h3>Sample h3 tag</h3>
+    <p>Sample pararaph</p>
+</div>
+<div id="editor"></div>
+<button id="cmd">Generate PDF</button>
+<!--Add External Libraries - JQuery and jspdf 
+check out url - https://scotch.io/@nagasaiaytha/generate-pdf-from-html-using-jquery-and-jspdf
+-->
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
         
 
 </body>
