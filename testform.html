@@ -12,7 +12,7 @@
 		<input type="text" id="program" value="" placeholder="Program" /><br>
 		<input type="text" id="date" value="" placeholder="Start Date" /><br>
 		<input type="text" id="name" value="" placeholder="Student Name"/><br>
-		<input type="button" id="button" value="Submit"/>
+		<input type="button" id="button" value="Download PDF"/>
 	<script>
 
 	$('#button').click(function() {
@@ -34,7 +34,7 @@
 		doc.text(45, 90, program);
 		doc.text(40, 100, date);
 		doc.text(80, 120, name);
-		 doc.save('test.pdf');
+		 doc.save('pdftestform.pdf');
 
 		
 		
