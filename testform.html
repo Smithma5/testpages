@@ -5,13 +5,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
 </head>
 <body>
-<div id="navbar"><span>jsPDF Tutorial - Form Filling</span></div>
+<div id="navbar"><span>PDF Form Filling</span></div>
 <div id="wrapper">
 
-		<input type="text" id="name" value=""/ placeholder="Name"><br>
-		<input type="text" id="company" value="" placeholder="Company" /><br>
-		<input type="text" id="department" value="" placeholder="Department" /><br>
-		<input type="text" id="title" value="" placeholder="Job Title"/><br>
+		<input type="text" id="number" value="" placeholder="Contract Number"><br>
+		<input type="text" id="program" value="" placeholder="Program" /><br>
+		<input type="text" id="date" value="" placeholder="Start Date" /><br>
+		<input type="text" id="name" value="" placeholder="Student Name"/><br>
 		<input type="button" id="button" value="Submit"/>
 	<script>
 
@@ -22,18 +22,18 @@
 		 
 		 doc.addImage(imgData, 'JPEG',0,0,215,279);
 		 
+		var number = $('#number').val();
+		var program = $('#program').val();
+		var date = $('#date').val();
 		var name = $('#name').val();
-		var company = $('#company').val();
-		var department = $('#department').val();
-		var title = $('#title').val();
 		
-		doc.setFontSize(26);
+		doc.setFontSize(25);
 		doc.setTextColor(92, 76, 76);
 		
-		doc.text(55, 65, name);
-		doc.text(45, 90, company);
-		doc.text(40, 100, department);
-		doc.text(80, 120, title);
+		doc.text(55, 65, number);
+		doc.text(45, 90, program);
+		doc.text(40, 100, date);
+		doc.text(80, 120, name);
 		 doc.save('test.pdf');
 
 		
